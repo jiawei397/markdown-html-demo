@@ -2,7 +2,7 @@
 
 这是示例：
 
-  @[playground](sample_021_Hello)
+@[playground](sample_021_Hello)
 
 
 这是示例2：
