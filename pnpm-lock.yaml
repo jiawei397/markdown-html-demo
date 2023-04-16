@@ -7,6 +7,7 @@ specifiers:
   markdown-it-custom-block: ^0.1.2
   markdown-it-for-inline: ^0.1.1
   markdown-it-regexp: ^0.4.0
+  markdown-it-video: ^0.6.3
 
 dependencies:
   koa: 2.14.2
@@ -15,6 +16,7 @@ dependencies:
   markdown-it-custom-block: 0.1.2
   markdown-it-for-inline: 0.1.1
   markdown-it-regexp: 0.4.0
+  markdown-it-video: 0.6.3
 
 packages:
 
@@ -234,6 +236,10 @@ packages:
 
   /markdown-it-regexp/0.4.0:
     resolution: {integrity: sha512-0XQmr46K/rMKnI93Y3CLXsHj4jIioRETTAiVnJnjrZCEkGaDOmUxTbZj/aZ17G5NlRcVpWBYjqpwSlQ9lj+Kxw==}
+    dev: false
+
+  /markdown-it-video/0.6.3:
+    resolution: {integrity: sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q==}
     dev: false
 
   /markdown-it/13.0.1:
