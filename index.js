@@ -6,24 +6,34 @@ const app = new Koa();
 
 const md = new MarkdownIt();
 // 定义正则表达式匹配playground标签
-const playgroundRegexp = /^@\[playground\]\((.*)\)/;
+const playgroundRegexp = /^@\[playground\]\((.+)\)/;
 const service = "playground"
 
-function transPlay(key) {
-  let width = 1200;
-  let height = 600;
-  if (key.includes("?")) {
-    let arr = key.split("?");
-    key = arr[0];
+function transPlay(playgroundId, options) {
+  let width = options.width;
+  let height = options.height;
+  if (playgroundId.includes("?")) {
+    let arr = playgroundId.split("?");
+    playgroundId = arr[0];
     const search = new URLSearchParams(arr[1]);
     width = search.get("width") || width;
     height = search.get("height") || height;
   }
-  return `<iframe width="${width}" height="${height}" src="https://www.thingjs.com/guide/sampleindex.html?m=examples/js/${key}.js"></iframe>`;
+  const src = (options.formatIframeUrl || formatIframeUrl)(playgroundId);
+  return `<iframe width="${width}" height="${height}" src="${src}"></iframe>`;
 }
 
-function tokenizePlayground(tokens, idx) {
-  return transPlay(tokens[idx].playgroundId)
+function formatIframeUrl(playgroundId) {
+  if (playgroundId.startsWith("http")) {
+    return playgroundId;
+  }
+  return `https://www.thingjs.com/guide/sampleindex.html?m=examples/js/${playgroundId}.js`
+}
+
+function tokenizePlayground(md, options) {
+  return (tokens, idx) => {
+    return transPlay(tokens[idx].playgroundId, options);
+  }
 }
 
 function playgroundEmbed(state, silent) {
@@ -44,12 +54,15 @@ function playgroundEmbed(state, silent) {
     token.level = state.level;
   }
 
-  state.pos += state.src.indexOf(')', state.pos);
+  state.pos += state.src.indexOf(')', state.pos) + 1;
   return true;
 }
 
-function playgroundPlugin(md, options) {
-  md.renderer.rules.playground = tokenizePlayground;
+function playgroundPlugin(md, options = {
+  width: 800,
+  height: 500,
+}) {
+  md.renderer.rules.playground = tokenizePlayground(md, options);
   md.inline.ruler.before('emphasis', service, playgroundEmbed);
 }
 
