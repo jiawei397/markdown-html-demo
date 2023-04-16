@@ -1,8 +1,8 @@
 // https://www.thingjs.com/guide/sampleindex.html?m=examples/js/sample_021_Hello.js
-const MarkdownIt = require('markdown-it');
-const fs = require("fs");
-const Koa = require('koa');
-const playgroundPlugin = require("./playgroundPlugin");
+import MarkdownIt from 'markdown-it';
+import { readFileSync } from "fs";
+import Koa from 'koa';
+import playgroundPlugin from "./playgroundPlugin.js";
 
 const app = new Koa();
 const md = new MarkdownIt();
@@ -14,7 +14,7 @@ md.use(playgroundPlugin, {
 
 
 app.use(async ctx => {
-  const str = fs.readFileSync("demo.md", {
+  const str = readFileSync("demo.md", {
     encoding: "utf-8"
   });
   // console.log(str);

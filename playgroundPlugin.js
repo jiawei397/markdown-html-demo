@@ -51,12 +51,10 @@ function playgroundEmbed(state, silent) {
   return true;
 }
 
-function playgroundPlugin(md, options = {
+export default function playgroundPlugin(md, options = {
   width: 800,
   height: 500,
 }) {
   md.renderer.rules.playground = tokenizePlayground(md, options);
   md.inline.ruler.before('emphasis', service, playgroundEmbed);
 }
-
-module.exports = playgroundPlugin;
