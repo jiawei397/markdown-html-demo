@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Markdown to HTML</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.js"></script> -->
+</head>
+
+<body>
+  <div id="markdown-content">
+    # Demo演示
+
+    下面是个样例：
+
+    @[playground](sample_021_Hello)
+
+
+    这是示例2：
+
+    @[playground](sample_021_Hello?width=400&height=200)
+
+  </div>
+
+  <script type="module">
+    import MarkdownIt from "https://esm.sh/v115/markdown-it@13.0.1/es2022/markdown-it.mjs";
+    import customBlock from "https://esm.sh/v115/markdown-it-custom-block@0.1.2/es2022/markdown-it-custom-block.mjs";
+    // 创建一个Markdown解析器
+    const md = new MarkdownIt();
+    md.use(customBlock, {
+      playground(key) {
+        let width = 1200;
+        let height = 600;
+        if (key.includes("?")) {
+          let arr = key.split("?");
+          key = arr[0];
+          const search = new URLSearchParams(arr[1]);
+          width = search.get("width") || width;
+          height = search.get("height") || height;
+        }
+        return `<iframe width="${width}" height="${height}" src="https://www.thingjs.com/guide/sampleindex.html?m=examples/js/${key}.js"></iframe>`;
+      }
+    })
+
+    // const markdownContent = document.getElementById('markdown-content').innerHTML;
+    const markdownContent = `# Demo演示
+    下面是个样例：
+
+    @[playground](sample_021_Hello)
+
+
+    这是示例2：
+
+    @[playground](sample_021_Hello?width=400&height=200)
+        `;
+    console.log(markdownContent)
+
+    const result = md.render(markdownContent);
+    // 将替换后的HTML渲染到页面中
+    document.getElementById('markdown-content').innerHTML = result;
+
+  </script>
+</body>
+
+</html>
