@@ -3,20 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   koa: ^2.14.2
   markdown-it: ^13.0.1
-  markdown-it-container: ^3.0.0
-  markdown-it-custom-block: ^0.1.2
-  markdown-it-for-inline: ^0.1.1
-  markdown-it-regexp: ^0.4.0
-  markdown-it-video: ^0.6.3
 
 dependencies:
   koa: 2.14.2
   markdown-it: 13.0.1
-  markdown-it-container: 3.0.0
-  markdown-it-custom-block: 0.1.2
-  markdown-it-for-inline: 0.1.1
-  markdown-it-regexp: 0.4.0
-  markdown-it-video: 0.6.3
 
 packages:
 
@@ -219,27 +209,6 @@ packages:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
-    dev: false
-
-  /markdown-it-container/3.0.0:
-    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
-    dev: false
-
-  /markdown-it-custom-block/0.1.2:
-    resolution: {integrity: sha512-MfsADPwZTWikDW7SY81iNrd7Sm5u9si2Y2lIpKfz9GpfRV2uiNh+/YIhb0zApqmvR0nC/c8MpmsdRTzzs8miMA==}
-    engines: {node: '>= 6.0.0'}
-    dev: false
-
-  /markdown-it-for-inline/0.1.1:
-    resolution: {integrity: sha512-lLQuczOg90a9q9anIUbmq+M+FFrIYNN5TfpccLDRchQic8nj/uTqaJKoYr73FF2tR4O8mFfh2ZzCDAAB2MZJgA==}
-    dev: false
-
-  /markdown-it-regexp/0.4.0:
-    resolution: {integrity: sha512-0XQmr46K/rMKnI93Y3CLXsHj4jIioRETTAiVnJnjrZCEkGaDOmUxTbZj/aZ17G5NlRcVpWBYjqpwSlQ9lj+Kxw==}
-    dev: false
-
-  /markdown-it-video/0.6.3:
-    resolution: {integrity: sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q==}
     dev: false
 
   /markdown-it/13.0.1:

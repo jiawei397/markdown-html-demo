@@ -5,18 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "koa": "^2.14.2",
-    "markdown-it": "^13.0.1",
-    "markdown-it-container": "^3.0.0",
-    "markdown-it-custom-block": "^0.1.2",
-    "markdown-it-for-inline": "^0.1.1",
-    "markdown-it-regexp": "^0.4.0",
-    "markdown-it-video": "^0.6.3"
+    "markdown-it": "^13.0.1"
   }
 }
